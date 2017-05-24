@@ -263,59 +263,65 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <!-- calandar -->
   <div id="calendar" class="w3-container">
     <h5><b><i class="fa fa-calendar"></i> Schedule</b></h5>
-    <table style="width:100%">
-      <tr>
-        <!-- <th style="width:15%">getDay()</th> -->
-        <th id = "today" style="width:14%">MON 5/8</th>
-        <th id = "day1" style="width:14%">TUE 5/9</th>
-        <th id = "day2" style="width:14%">WED 5/10</th>
-        <th id = "day3" style="width:14%">THR 5/11</th>
-        <th id = "day4" style="width:14%">FRI 5/12</th>
-        <th id = "day5" style="width:15%">SAT 5/13</th>
-        <th id = "day6" style="width:15%">SAT 5/13</th>
-      </tr>
-      <!-- loop four times -->
-      <tr>
-        <td style="width:15%; text-align: center;">
-        <div style="background-color: rgba(100, 167, 215, 0.8); color: white;">
-          <div>
-              <p>Morning</p>
-            </div>
+    <div class="w3-quarter">
+      <table style="width:100%">
+        <tr>
+          <!-- <th style="width:15%">getDay()</th> -->
+          <th id = "today" style="width:14%">MON 5/8</th>
+        </tr>
+        <!-- loop four times -->
+        <tr>
+          <td style="width:15%; text-align: center;">
+          <div style="background-color: rgba(100, 167, 215, 0.8); color: white;">
             <div>
-              <p>friends who are available this time</p>
+                <p>Morning</p>
+              </div>
+              <div>
+                <p>friends who are available this time</p>
+              </div>
+              <div>
+                <p>
+                  <i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
+                  <i class="material-icons" style="font-size:24px;" align="center"> cancel</i>
+                </p>
+              </div>
             </div>
+            <div style="background-color: rgba(210, 164, 80, 0.8); color: white;">
             <div>
-              <p>
-                <i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
-                <i class="material-icons" style="font-size:24px;" align="center"> cancel</i>
-              </p>
+                <p>Afternoon</p>
+              </div>
+              <div>
+                <p>friends who are available this time</p>
+              </div>
+              <div>
+                <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
+                  <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
+              </div>
             </div>
-          </div>
-          <div style="background-color: rgba(210, 164, 80, 0.8); color: white;">
-          <div>
-              <p>Afternoon</p>
-            </div>
+            <div style="background-color: rgba(22, 0, 22, 0.8); color: white;">
             <div>
-              <p>friends who are available this time</p>
+                <p>Night</p>
+              </div>
+              <div>
+                <p>friends who are available this time</p>
+              </div>
+              <div>
+                <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
+                  <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
+              </div>
             </div>
-            <div>
-              <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
-                <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
-            </div>
-          </div>
-          <div style="background-color: rgba(22, 0, 22, 0.8); color: white;">
-          <div>
-              <p>Night</p>
-            </div>
-            <div>
-              <p>friends who are available this time</p>
-            </div>
-            <div>
-              <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
-                <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
-            </div>
-          </div>
-        </td>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="w3-quarter">
+        <table style="width:100%">
+          <tr>
+            <th id = "day1" style="width:14%">TUE 5/9</th>
+          </tr>
+          <!-- loop four times -->
+          <tr>
         <td style="width:14%; text-align: center;">
         <div style="background-color: rgba(100, 167, 215, 0.6);">
           <div>
@@ -342,196 +348,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             </div>
           </div>
           <div style="background-color: rgba(22, 0, 22, 0.6);">
-          <div>
-              <p>Night</p>
-            </div>
-            <div>
-              <p>friends who are available this time</p>
-            </div>
-            <div>
-              <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
-                <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
-            </div>
-          </div>
-        </td>
-        <td style="width:14%; text-align: center;">
-        <div style="background-color: rgba(100, 167, 215, 0.6);">
-          <div>
-              <p>Morning</p>
-            </div>
-            <div>
-              <p>friends who are available this time</p>
-            </div>
-            <div>
-              <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
-                <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
-            </div>
-          </div>
-          <div style="background-color: rgba(210, 164, 80, 0.6);">
-          <div>
-              <p>Afternoon</p>
-            </div>
-            <div>
-              <p>friends who are available this time</p>
-            </div>
-            <div>
-              <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
-                <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
-            </div>
-          </div>
-          <div style="background-color: rgba(22, 0, 22, 0.6);">
-          <div>
-              <p>Night</p>
-            </div>
-            <div>
-              <p>friends who are available this time</p>
-            </div>
-            <div>
-              <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
-                <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
-            </div>
-          </div>
-        </td>
-        <td style="width:14%; text-align: center;">
-        <div style="background-color: rgba(100, 167, 215, 0.5);">
-          <div>
-              <p>Morning</p>
-            </div>
-            <div>
-              <p>friends who are available this time</p>
-            </div>
-            <div>
-              <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
-                <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
-            </div>
-          </div>
-          <div style="background-color: rgba(210, 164, 80, 0.5);">
-          <div>
-              <p>Afternoon</p>
-            </div>
-            <div>
-              <p>friends who are available this time</p>
-            </div>
-            <div>
-              <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
-                <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
-            </div>
-          </div>
-          <div style="background-color: rgba(22, 0, 22, 0.5);">
-          <div>
-              <p>Night</p>
-            </div>
-            <div>
-              <p>friends who are available this time</p>
-            </div>
-            <div>
-              <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
-                <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
-            </div>
-          </div>
-        </td>
-        <td style="width:14%; text-align: center;">
-        <div style="background-color: rgba(100, 167, 215, 0.5);">
-          <div>
-              <p>Morning</p>
-            </div>
-            <div>
-              <p>friends who are available this time</p>
-            </div>
-            <div>
-              <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
-                <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
-            </div>
-          </div>
-          <div style="background-color: rgba(210, 164, 80, 0.5);">
-          <div>
-              <p>Afternoon</p>
-            </div>
-            <div>
-              <p>friends who are available this time</p>
-            </div>
-            <div>
-              <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
-                <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
-            </div>
-          </div>
-          <div style="background-color: rgba(22, 0, 22, 0.5);">
-          <div>
-              <p>Night</p>
-            </div>
-            <div>
-              <p>friends who are available this time</p>
-            </div>
-            <div>
-              <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
-                <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
-            </div>
-          </div>
-        </td>
-        <td style="width:14%; text-align: center;">
-        <div style="background-color: rgba(100, 167, 215, 0.4);">
-          <div>
-              <p>Morning</p>
-            </div>
-            <div>
-              <p>friends who are available this time</p>
-            </div>
-            <div>
-              <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
-                <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
-            </div>
-          </div>
-          <div style="background-color: rgba(210, 164, 80, 0.4);">
-          <div>
-              <p>Afternoon</p>
-            </div>
-            <div>
-              <p>friends who are available this time</p>
-            </div>
-            <div>
-              <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
-                <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
-            </div>
-          </div>
-          <div style="background-color: rgba(22, 0, 22, 0.4);">
-          <div>
-              <p>Night</p>
-            </div>
-            <div>
-              <p>friends who are available this time</p>
-            </div>
-            <div>
-              <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
-                <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
-            </div>
-          </div>
-        </td>
-        <td style="width:15%; text-align: center;">
-        <div style="background-color: rgba(100, 167, 215, 0.3);">
-          <div>
-              <p>Morning</p>
-            </div>
-            <div>
-              <p>friends who are available this time</p>
-            </div>
-            <div>
-              <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
-                <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
-            </div>
-          </div>
-          <div style="background-color: rgba(210, 164, 80, 0.3);">
-          <div>
-              <p>Afternoon</p>
-            </div>
-            <div>
-              <p>friends who are available this time</p>
-            </div>
-            <div>
-              <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
-                <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
-            </div>
-          </div>
-          <div style="background-color: rgba(22, 0, 22, 0.3);">
           <div>
               <p>Night</p>
             </div>
@@ -546,6 +362,105 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         </td>
       </tr>
     </table>
+  </div>
+
+  <div class="w3-quarter">
+    <table style="width:100%">
+      <tr>
+        <th id = "day2" style="width:14%">WED 5/10</th>
+      </tr>
+        <!-- loop four times -->
+      <tr>
+      <td style="width:14%; text-align: center;">
+      <div style="background-color: rgba(100, 167, 215, 0.5);">
+        <div>
+            <p>Morning</p>
+          </div>
+          <div>
+            <p>friends who are available this time</p>
+          </div>
+          <div>
+            <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
+              <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
+          </div>
+        </div>
+        <div style="background-color: rgba(210, 164, 80, 0.5);">
+        <div>
+            <p>Afternoon</p>
+          </div>
+          <div>
+            <p>friends who are available this time</p>
+          </div>
+          <div>
+            <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
+              <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
+          </div>
+        </div>
+        <div style="background-color: rgba(22, 0, 22, 0.5);">
+        <div>
+            <p>Night</p>
+          </div>
+          <div>
+            <p>friends who are available this time</p>
+          </div>
+          <div>
+            <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
+              <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
+          </div>
+        </div>
+      </td>
+    </tr>
+    </table>
+  </div>
+
+  <div class="w3-quarter">
+    <table style="width:100%">
+      <tr>
+          <th id = "day3" style="width:14%">THR 5/11</th>
+      </tr>
+        <!-- loop four times -->
+      <tr>
+      <td style="width:14%; text-align: center;">
+      <div style="background-color: rgba(100, 167, 215, 0.4);">
+        <div>
+            <p>Morning</p>
+          </div>
+          <div>
+            <p>friends who are available this time</p>
+          </div>
+          <div>
+            <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
+              <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
+          </div>
+        </div>
+        <div style="background-color: rgba(210, 164, 80, 0.4);">
+        <div>
+            <p>Afternoon</p>
+          </div>
+          <div>
+            <p>friends who are available this time</p>
+          </div>
+          <div>
+            <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
+              <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
+          </div>
+        </div>
+        <div style="background-color: rgba(22, 0, 22, 0.4);">
+        <div>
+            <p>Night</p>
+          </div>
+          <div>
+            <p>friends who are available this time</p>
+          </div>
+          <div>
+            <p><i class="material-icons" style="font-size:24px;" align="center"> schedule</i>
+              <i class="material-icons" style="font-size:24px;" align="center"> cancel</i></p>
+          </div>
+        </div>
+      </td>
+    </tr>
+    </table>
+  </div>
   </div>
 
   <br>
