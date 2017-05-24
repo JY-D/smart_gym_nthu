@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-<title>NTHU GYN</title>
+<title>NTHU GYM</title>
 <meta charset="UTF-8">
-<meta id="viewport" content="width=device-width, , user-scalable=no">
+<meta name="HandheldFriendly" content="True">
+<meta id="viewport" content="user-scalable=no, width=device-width">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -123,16 +124,19 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             <label>Total # of people (approximately)</label>
           </div>
           <div class="w3-section">
-            <input class="w3-input" type="text" required="">
-            <label>Free Weight</label>
+            <!-- <input class="w3-input" type="text" required=""> -->
+            <label>Free Weight: </label>
+            <input type="range" name="free_weight" min="1" max="5">
           </div>
           <div class="w3-section">
-            <input class="w3-input" type="text" required="">
-            <label>Aerobic</label>
+            <!-- <input class="w3-input" type="text" required=""> -->
+            <label>Aerobic: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="range" name="aerobic" min="1" max="5">
           </div>
           <div class="w3-section">
-            <input class="w3-input" type="text" required="">
-            <label>Machines</label>
+            <!-- <input class="w3-input" type="text" required=""> -->
+            <label>Machines: &nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="range" name="machines" min="1" max="5">
           </div>
           <div class="w3-section">
             <input class="w3-input" type="submit" value="Submit">
