@@ -14,6 +14,101 @@
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
+<script>
+window.onload = function() {
+  var xmlhttp = new XMLHttpRequest();
+  var total_status_list = [];
+  var time_list = [];
+  var averages_string = [];
+  var break_time = 0;
+  var total_average = 0;
+  var weight_average = 0;
+  var aerobic_average = 0;
+  var machines_average = 0;
+
+  xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          myObj = JSON.parse(this.responseText);
+          var i;
+          var length = myObj.feed.entry.length;
+          //console.log(length);
+          var latest_time = myObj.feed.entry[length-1].gsx$timestamp.$t;
+          var comparison = 0;
+          console.log("latest_time: " + latest_time);
+
+          for (i = length-1; i > -1; i--){
+
+            var current_time = myObj.feed.entry[i].gsx$timestamp.$t;
+            comparison = latest_time.substring(0, 13).localeCompare(current_time.substring(0, 13));
+
+            if (comparison != 0){
+              break_time = i;
+              break;
+            }
+          }
+          //console.log("break_time: " + break_time);
+
+          var total_add = 0;
+          var weight_add = 0;
+          var aerobic_add = 0;
+          var machines_add = 0;
+          var loop_time = 0;
+
+          for (i = length-1; i > break_time; i--){
+            total_add = total_add + parseInt(myObj.feed.entry[i].gsx$total.$t);
+            weight_add = weight_add + parseInt(myObj.feed.entry[i].gsx$freeweight.$t);
+            aerobic_add = aerobic_add + parseInt(myObj.feed.entry[i].gsx$aerobic.$t);
+            machines_add = machines_add + parseInt(myObj.feed.entry[i].gsx$machines.$t);
+
+            loop_time++;
+            //console.log("total_add: " + total_add);
+            }
+
+          total_average = total_add / loop_time;
+          weight_average = weight_add / loop_time;
+          aerobic_average = aerobic_add / loop_time;
+          machines_average = machines_add / loop_time;
+
+          var averages = [total_average, weight_average, aerobic_average, machines_average];
+
+          for (var j = 0; j < averages.length; j++){
+            //console.log(averages[j]);
+             switch (true){
+               case (averages[j] < 2) :
+               averages_string.push("Free");
+               break;
+               case ((averages[j] >= 2) && (averages[j] < 3)) :
+               averages_string.push("Few");
+               break;
+               case ((averages[j] >= 3) && (averages[j] < 4)) :
+               averages_string.push("Many");
+               break;
+               case ((averages[j] >= 4) && (averages[j] < 5)) :
+               averages_string.push("Full");
+               break;
+            }
+          }
+
+          //averages_string.toString();
+          console.log("averages_string: " + averages_string);
+          //console.log("total_average: " + total_average);
+          }
+          //document.getElementById("demo").innerHTML = averages_string;
+          document.getElementById("latest_time").innerHTML = "updated time: " + latest_time;
+          document.getElementById("total_avg").innerHTML = averages_string[0];
+          document.getElementById("weight_avg").innerHTML = averages_string[1];
+          document.getElementById("aerobic_avg").innerHTML = averages_string[2];
+          document.getElementById("machines_avg").innerHTML = averages_string[3];
+
+      };
+
+  xmlhttp.open("GET", "https://spreadsheets.google.com/feeds/list/1T3G9EaIiwqc6U_9qvyz4J1C6-13J50J4XXcnZarGSto/od6/public/values?alt=json", true);
+  xmlhttp.send();
+
+};
+
+</script>
+
 <body class="w3-light-grey">
 
 <!-- Top container -->
@@ -48,7 +143,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
 </nav>
 
-
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
@@ -58,100 +152,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <!-- Header -->
   <header id="counting" class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-users"></i> Number of people</b></h5>
+    <p id="latest_time"></p>
   </header>
-  <script>
-  window.onload = function() {
-    var xmlhttp = new XMLHttpRequest();
-    var total_status_list = [];
-    var time_list = [];
-    var averages_string = [];
-    var break_time = 0;
-    var total_average = 0;
-    var weight_average = 0;
-    var aerobic_average = 0;
-    var machines_average = 0;
-
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            myObj = JSON.parse(this.responseText);
-            var i;
-            var length = myObj.feed.entry.length;
-            //console.log(length);
-            var latest_time = myObj.feed.entry[length-1].gsx$timestamp.$t;
-            var comparison = 0;
-            console.log("latest_time: " + latest_time);
-
-            for (i = length-1; i > -1; i--){
-
-              var current_time = myObj.feed.entry[i].gsx$timestamp.$t;
-              comparison = latest_time.substring(0, 13).localeCompare(current_time.substring(0, 13));
-
-              if (comparison != 0){
-                break_time = i;
-                break;
-              }
-            }
-            console.log("break_time: " + break_time);
-
-            var total_add = 0;
-            var weight_add = 0;
-            var aerobic_add = 0;
-            var machines_add = 0;
-            var loop_time = 0;
-
-            for (i = length-1; i > break_time; i--){
-              total_add = total_add + parseInt(myObj.feed.entry[i].gsx$total.$t);
-              weight_add = weight_add + parseInt(myObj.feed.entry[i].gsx$freeweight.$t);
-              aerobic_add = aerobic_add + parseInt(myObj.feed.entry[i].gsx$aerobic.$t);
-              machines_add = machines_add + parseInt(myObj.feed.entry[i].gsx$machines.$t);
-
-              loop_time++;
-              //console.log("total_add: " + total_add);
-              }
-
-            total_average = total_add / loop_time;
-            weight_average = weight_add / loop_time;
-            aerobic_average = aerobic_add / loop_time;
-            machines_average = machines_add / loop_time;
-
-            var averages = [total_average, weight_average, aerobic_average, machines_average];
-
-            for (var j = 0; j < averages.length; j++){
-              //console.log(averages[j]);
-               switch (true){
-                 case (averages[j] < 2) :
-                 averages_string.push("Free");
-                 break;
-                 case ((averages[j] >= 2) && (averages[j] < 3)) :
-                 averages_string.push("Few");
-                 break;
-                 case ((averages[j] >= 3) && (averages[j] < 4)) :
-                 averages_string.push("Many");
-                 break;
-                 case ((averages[j] >= 4) && (averages[j] < 5)) :
-                 averages_string.push("Full");
-                 break;
-              }
-            }
-
-            //averages_string.toString();
-            console.log("averages_string: " + averages_string);
-            //console.log("total_average: " + total_average);
-            }
-            //document.getElementById("demo").innerHTML = averages_string;
-            document.getElementById("total_avg").innerHTML = averages_string[0];
-            document.getElementById("weight_avg").innerHTML = averages_string[1];
-            document.getElementById("aerobic_avg").innerHTML = averages_string[2];
-            document.getElementById("machines_avg").innerHTML = averages_string[3];
-
-        };
-
-    xmlhttp.open("GET", "https://spreadsheets.google.com/feeds/list/1T3G9EaIiwqc6U_9qvyz4J1C6-13J50J4XXcnZarGSto/od6/public/values?alt=json", true);
-    xmlhttp.send();
-
-  };
-
-  </script>
 
   <div class="w3-row-padding w3-margin-bottom">
     <div class="w3-quarter">
